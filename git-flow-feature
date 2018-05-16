@@ -47,7 +47,7 @@ usage() {
 	echo "usage: git flow feature [list] [-v]"
 	echo "       git flow feature start [-F] <name> [<base>]"
 	echo "       git flow feature finish [-rFkDS] [<name|nameprefix>]"
-	echo "       git flow feature publish <name>"
+	echo "       git flow feature publish <name> (submits to gitlab)"
 	echo "       git flow feature track <name>"
 	echo "       git flow feature diff [<name|nameprefix>]"
 	echo "       git flow feature rebase [-i] [<name|nameprefix>]"
@@ -395,11 +395,18 @@ cmd_publish() {
 	git_do config "branch.$BRANCH.merge" "refs/heads/$BRANCH"
 	git_do checkout "$BRANCH"
 
+	# 
+	# TODO do this
+
+
+
+
 	echo
 	echo "Summary of actions:"
 	echo "- A new remote branch '$BRANCH' was created"
 	echo "- The local branch '$BRANCH' was configured to track the remote branch"
 	echo "- You are now on branch '$BRANCH'"
+	echo "- A pull request has been created and submitted to gitlab"
 	echo
 }
 
